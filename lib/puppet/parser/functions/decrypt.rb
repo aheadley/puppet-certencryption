@@ -1,3 +1,7 @@
+require 'base64'
+# require 'puppet/util/certencryption'
+require File.expand_path('../../util/certencryption', __FILE__)
+
 module Puppet::Parser::Functions
 
   newfunction(:decrypt, :type => :rvalue, :doc => <<-'ENDHEREDOC') do |args|
@@ -7,8 +11,6 @@ module Puppet::Parser::Functions
       decrypt('/etc/puppetlabs/puppet/ssl/private_keys/thekey.pem', $::theencryptedfact)
 
     ENDHEREDOC
-    require 'puppet/util/certencryption'
-    require 'base64'
 
     raise Puppet::ParseError, ("decrypt(): Wrong number of arguments (#{args.length}; must be = 2)") unless args.length == 2
 
