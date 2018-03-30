@@ -1,6 +1,6 @@
 require 'base64'
 # require 'puppet/util/certencryption'
-require File.expand_path('../../util/certencryption', __FILE__)
+require File.expand_path('../../../util/certencryption', __FILE__)
 
 module Puppet::Parser::Functions
 
